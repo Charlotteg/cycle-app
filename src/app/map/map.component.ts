@@ -149,40 +149,24 @@ export class MapComponent implements OnInit {
     console.log(this.routeData, this.currentData);
 
 
-    this.routeData.features = this.routeData.features.map((d) => {
-      d.properties.lineDistance = turf.lineDistance(d, { units : 'miles'});
+    // this.routeData.features = this.routeData.features.map((d) => {
+    //   d.properties.lineDistance = turf.lineDistance(d, { units : 'miles'});
 
-      const arc = [];
+    //   const arc = [];
 
-      const steps = 100;
+    //   const steps = 100;
 
-      for (let i = 0; i < d.properties.lineDistance; i += d.properties.lineDistance / steps) {
-        const segment = turf.along(d, i, {units: 'miles'});
-        arc.push(segment.geometry.coordinates);
-      }
-
-      d.geometry.coordinates = arc;
-
-      return d;
-    });
-
-
-
-    // Calculate the distance in kilometers between route start/end point.
-    // this.lineDistance = turf.lineDistance(this.routeData.features[0], { units : 'kilometers'});
-
-    // const arc = [];
-
-    // Draw an arc between the `origin` & `destination` of the two points
-    // for (let i = 0; i < this.lineDistance; i++) {
-    //     const segment = turf.along(this.routeData.features[0], i / 1000 * this.lineDistance, {units: 'kilometers'});
+    //   for (let i = 0; i < d.properties.lineDistance; i += d.properties.lineDistance / steps) {
+    //     const segment = turf.along(d, i, {units: 'miles'});
     //     arc.push(segment.geometry.coordinates);
-    // }
+    //   }
 
-    // Update the route with calculated arc coordinates
-    // this.routeData.features[0].geometry.coordinates = arc;
-    console.log('protein bar', this.routeData);
-    this.mapLayers.routes['route']['source'].setData(this.routeData);
+    //   d.geometry.coordinates = arc;
+
+    //   return d;
+    // });
+
+    // this.mapLayers.routes['route']['source'].setData(this.routeData);
 
       // Used to increment the value of the point measurement against the route.
     const counter = 2000;
@@ -229,14 +213,38 @@ export class MapComponent implements OnInit {
       if (this.currentData && this.teamData && this.routeData) {
         this.milequistData = this.dataService.calcMilequists(this.currentData, this.teamData, this.routeData);
 
+
+        // make routes nice and curved
+        this.routeData.features = this.routeData.features.map((k) => {
+          k.properties.lineDistance = turf.lineDistance(k, { units : 'miles'});
+
+          const arc = [];
+
+          const steps = 100;
+
+          for (let i = 0; i < k.properties.lineDistance; i += k.properties.lineDistance / steps) {
+            const segment = turf.along(k, i, {units: 'miles'});
+            arc.push(segment.geometry.coordinates);
+          }
+
+          k.geometry.coordinates = arc;
+
+          return k;
+        });
+        this.mapLayers.routes['route']['source'].setData(this.routeData);
+
+
+
+
+
         console.log(this.milequistData);
 
         this.bikes = {type: 'geojson', data: {type: 'FeatureCollection', features: []} };
 
         this.milequistData.map((d) => {
-            console.log(this.routeData);
-            if (d.routes) {
 
+            // make routes nice and curved
+            if (d.routes) {           //
             const currentRoute = d.routes.filter((j) => {
               return j.current && !j.complete;
             });
@@ -269,7 +277,7 @@ export class MapComponent implements OnInit {
         console.log('bikes', this.bikes);
 
         if (this.mapLayers.routes['plane']) {
-          this.mapLayers.routes['plane']['source'].setData(this.bikes);
+          this.mapLayers.routes['plane']['source'].setData(this.bikes.data);
         }
 
 
