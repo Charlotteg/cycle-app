@@ -1,0 +1,8 @@
+{
+  "/api/*": {
+    "target": "https://commute-joy.herokuapp.com",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}

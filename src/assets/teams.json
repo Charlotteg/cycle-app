@@ -1,0 +1,158 @@
+{ "teams":
+  [
+    {
+      "team_name" : "Arup NYC",
+      "total_staff": 528,
+      "routes": [
+        {
+          "route_name": "CHI-NY",
+          "completed": false,
+          "current": true
+        }
+      ]
+    },
+    {
+      "team_name" : "Arup Chicago",
+      "total_staff": 45,
+      "routes": [
+        {
+          "route_name": "LA-CHI",
+          "completed": false,
+          "current": true
+        }
+      ]
+    },
+    {
+      "team_name" : "Arup SF",
+      "total_staff": 324,
+      "routes": [
+        {
+          "route_name": "SF-SEA",
+          "completed": false,
+          "current": true
+        }
+      ]
+    },
+    {
+      "team_name" : "Arup DC",
+      "total_staff": 38,
+      "routes": [
+        {
+          "route_name": "DC-HOU",
+          "completed": false,
+          "current": true
+        }
+      ]
+    },
+    {
+      "team_name" : "Arup Seattle",
+      "total_staff": 66,
+      "routes": [
+        {
+          "route_name": "SEA-CHI",
+          "completed": false,
+          "current": true
+        }
+      ]
+    },
+    {
+      "team_name" : "Arup LA",
+      "total_staff": 238,
+      "routes": [
+        {
+          "route_name": "LA-CHI",
+          "completed": false,
+          "current": true
+        }
+      ]
+    },
+    {
+      "team_name" : "Arup Boston",
+      "total_staff": 75,
+      "routes": [
+        {
+          "route_name": "MON-BOS",
+          "completed": false,
+          "current": true
+        }
+      ]
+    },
+    {
+      "team_name" : "Arup Houston",
+      "total_staff": 47,
+      "routes": [
+        {
+          "route_name": "HOU-SF",
+          "completed": false,
+          "current": true
+        }
+      ]
+    },
+    {
+      "team_name" : "Arup Toronto",
+      "total_staff": 75,
+      "routes": [
+        {
+          "route_name": "NY-TOR",
+          "completed": false,
+          "current": true
+        }
+      ]
+    },
+    {
+      "team_name" : "Arup Bristol",
+      "total_staff": 333,
+      "routes": [
+        {
+          "route_name": "BOS-NY",
+          "completed": false,
+          "current": true
+        }
+      ]
+    },
+    {
+      "team_name" : "Arup Leeds",
+      "total_staff": 316,
+      "routes": [
+        {
+          "route_name": "HOU-LA",
+          "completed": false,
+          "current": true
+        }
+      ]
+    },
+    {
+      "team_name" : "Arup Sheffield",
+      "total_staff": 130,
+      "routes": [
+        {
+          "route_name": "LA-SF",
+          "completed": false,
+          "current": true
+        }
+      ]
+    },
+    {
+      "team_name" : "Arup Edinburgh",
+      "total_staff": 141,
+      "routes": [
+        {
+          "route_name": "DC-CHI",
+          "completed": false,
+          "current": true
+        }
+      ]
+    },
+    {
+      "team_name" : "Arup Montreal",
+      "total_staff": 33,
+      "routes": [
+        {
+          "route_name": "TOR-MON",
+          "completed": false,
+          "current":  true
+        }
+      ]
+    }
+  ]
+}

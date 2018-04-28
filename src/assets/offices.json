@@ -1,0 +1,116 @@
+{ "type": "geojson",
+  "data": {
+    "type": "FeatureCollection",
+    "features": [
+      { "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-122.333924, 47.603374]
+        },
+        "properties": {
+          "office": "Seattle",
+          "color": "#D22D7D"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-122.399499, 37.788997]
+        },
+        "properties": {
+          "office": "San Francisco",
+          "color": "#D22D7D"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-118.418270, 33.978732]
+        },
+        "properties": {
+          "office": "Los Angeles",
+          "color": "#D22D7D"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-87.626800, 41.886647]
+        },
+        "properties": {
+          "office": "Chicago",
+          "color": "#D22D7D"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-79.386660, 43.670696]
+        },
+        "properties": {
+          "office": "Toronto",
+          "color": "#D22D7D"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-71.056507, 42.359254]
+        },
+        "properties": {
+          "office": "Boston",
+          "color": "#D22D7D"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-74.008235, 40.704219]
+        },
+        "properties": {
+          "office": "New York",
+          "color": "#D22D7D"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-77.040996, 38.904207]
+        },
+        "properties": {
+          "office": "Washington DC",
+          "color": "#D22D7D"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-95.556406, 29.728436]
+        },
+        "properties": {
+          "office": "Houston",
+          "color": "#D22D7D"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-73.571036, 45.504146]
+        },
+        "properties": {
+          "office": "Montreal",
+          "color": "#D22D7D"
+        }
+      }
+    ]
+  }
+}

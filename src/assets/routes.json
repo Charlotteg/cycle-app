@@ -1,0 +1,205 @@
+{ "type": "geojson",
+  "data": {
+    "type": "FeatureCollection",
+    "features": [
+      { "type": "Feature",
+        "properties":{
+          "route_name": "HOU-LA",
+          "milequist": 1500,
+          "points": 6,
+          "winner": ""
+        },
+        "geometry":{
+          "type": "LineString",
+          "coordinates": [[-95.556406, 29.728436],[-118.418270, 33.978732]]
+        }},
+        { "type": "Feature",
+          "properties": {
+            "route_name": "HOU-SF",
+            "milequist": 2000,
+            "points": 10,
+            "winner": ""
+          },
+        "geometry":{
+          "type": "LineString",
+          "coordinates": [[-95.556406, 29.728436], [-122.399499, 37.788997]]
+        }},
+        { "type": "Feature",
+          "properties":{
+            "route_name": "LA-SF",
+            "milequist": 500,
+            "points": 1,
+            "winner": ""
+          },
+        "geometry":{
+          "type": "LineString",
+          "coordinates": [[-118.418270, 33.978732], [-122.399499, 37.788997]]
+        }},
+        { "type": "Feature",
+          "properties":{
+            "route_name": "LA-CHI",
+            "milequist": 2000,
+            "points": 10,
+            "winner": ""
+          },
+        "geometry":{
+          "type": "LineString",
+          "coordinates": [[-118.418270, 33.978732], [-87.626800, 41.886647]]
+        }},
+        { "type": "Feature",
+          "properties": {
+            "route_name": "SF-CHI",
+            "milequist": 2000,
+            "points": 10,
+            "winner": ""
+          },
+        "geometry":{
+          "type": "LineString",
+          "coordinates": [[-122.399499, 37.788997], [-87.626800, 41.886647]]
+        }},
+        { "type": "Feature",
+          "properties": {
+            "route_name": "SF-SEA",
+            "milequist": 1000,
+            "points": 3,
+            "winner": ""
+          },
+        "geometry":{
+          "type": "LineString",
+          "coordinates": [[-122.399499, 37.788997], [-122.333924, 47.603374]]
+        }},
+        { "type": "Feature",
+          "properties": {
+            "route_name": "SEA-LA",
+            "milequist": 1500,
+            "points": 6,
+            "winner": ""
+          },
+        "geometry":{
+          "type": "LineString",
+          "coordinates": [[-122.333924, 47.603374], [-118.418270, 33.978732]]
+        }},
+        { "type": "Feature",
+          "properties": {
+            "route_name": "SEA-CHI",
+            "milequist": 2000,
+            "points": 10,
+            "winner": ""
+          },
+        "geometry":{
+          "type": "LineString",
+          "coordinates": [[-122.333924, 47.603374], [-87.626800, 41.886647]]
+        }},
+        { "type": "Feature",
+          "properties": {
+            "route_name": "CHI-HOU",
+            "milequist": 1500,
+            "points": 6,
+            "winner": ""
+          },
+        "geometry":{
+          "type": "LineString",
+          "coordinates": [[-87.626800, 41.886647], [-95.556406, 29.728436]]
+        }},
+        { "type": "Feature",
+          "properties": {
+            "route_name": "CHI-NY",
+            "milequist": 1000,
+            "points": 3,
+            "winner": ""
+          },
+        "geometry":{
+          "type": "LineString",
+          "coordinates": [[-87.626800, 41.886647], [-74.008235, 40.704219]]
+        }},
+        { "type": "Feature",
+          "properties": {
+            "route_name": "NY-DC",
+            "milequist": 500,
+            "points": 1,
+            "winner": ""
+          },
+        "geometry":{
+          "type": "LineString",
+          "coordinates": [[-74.008235, 40.704219], [-77.040996, 38.904207]]
+        }},
+        { "type": "Feature",
+          "properties": {
+            "route_name": "DC-CHI",
+            "milequist": 1000,
+            "points": 3,
+            "winner": ""
+          },
+        "geometry":{
+          "type": "LineString",
+          "coordinates": [[-77.040996, 38.904207], [-87.626800, 41.886647]]
+        }},
+        { "type": "Feature",
+          "properties": {
+            "route_name": "DC-HOU",
+            "milequist": 1500,
+            "points": 6,
+            "winner": ""
+          },
+        "geometry":{
+          "type": "LineString",
+          "coordinates": [[-77.040996, 38.904207], [-95.556406, 29.728436]]
+        }},
+        { "type": "Feature",
+          "properties": {
+            "route_name": "BOS-NY",
+            "milequist": 500,
+            "points": 1,
+            "winner": ""
+          },
+        "geometry":{
+          "type": "LineString",
+          "coordinates": [[-71.056507, 42.359254], [-74.008235, 40.704219]]
+        }},
+        { "type": "Feature",
+          "properties": {
+            "route_name": "NY-TOR",
+            "milequist": 500,
+            "points": 1,
+            "winner": ""
+          },
+        "geometry":{
+          "type": "LineString",
+          "coordinates": [[-74.008235, 40.704219], [-79.386660, 43.670696]]
+        }},
+        { "type": "Feature",
+          "properties": {
+            "route_name": "TOR-MON",
+            "milequist": 500,
+            "points": 1,
+            "winner": ""
+          },
+        "geometry":{
+          "type": "LineString",
+          "coordinates": [[-79.386660, 43.670696], [-73.571036, 45.504146]]
+        }},
+        { "type": "Feature",
+          "properties": {
+            "route_name": "MON-BOS",
+            "milequist": 500,
+            "points": 1,
+            "winner": ""
+          },
+        "geometry":{
+          "type": "LineString",
+          "coordinates": [[-73.571036, 45.504146], [-71.056507, 42.359254]]
+        }},
+        { "type": "Feature",
+          "properties": {
+            "route_name": "TOR-CHI",
+            "milequist": 500,
+            "points": 1,
+            "winner": ""
+          },
+        "geometry":{
+          "type": "LineString",
+          "coordinates": [[-79.386660, 43.670696], [-87.626800, 41.886647]]
+        }}
+    ]
+  }
+}
