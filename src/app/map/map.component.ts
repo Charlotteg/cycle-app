@@ -37,7 +37,7 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
 
-    // initialise map
+    // initialize map
     (mapboxgl as any).accessToken = environment.mapbox.accessToken;
     this.map = new mapboxgl.Map({
       container: 'map',
