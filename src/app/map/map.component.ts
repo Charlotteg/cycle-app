@@ -98,14 +98,64 @@ export class MapComponent implements OnInit {
         source: 'plane',
         type: 'circle',
         paint: {
-          'circle-radius': 3,
-          'circle-color': '#fcb400',
-          'circle-opacity': 0.6,
+          'circle-radius': 6,
+          'circle-opacity': 1,
           'circle-stroke-width': 0.2,
           'circle-stroke-color': '#fcb400',
-          'circle-stroke-opacity': 0.6
+          'circle-stroke-opacity': 1,
+          'circle-color': [
+            'match',
+            ['get', 'team'],
+            'Arup NYC', '#28AF73',
+            'Arup Chicago', '#28AAE1',
+            'Arup DC', '#696EB4',
+            'Arup Seattle', '#D22D7D',
+            'Arup LA', '#FA9B1E',
+            'Arup Toronto', '#FF79EC',
+            'Arup Bristol', '#FFFF00',
+            'Arup Leeds', '#FF0000',
+            'Arup Sheffield', '#FF0000',
+            'Arup Montreal', '#FF0000',
+            /* other */ '#ccc'
+        ]
         }
       });
+
+      this.map.addLayer({
+        id: 'bikes-label-layer',
+        source: 'plane',
+        type: 'symbol',
+        layout: {
+          'text-field': '{team}',
+          'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
+          'text-size': 11,
+          'text-transform': 'uppercase',
+          'text-letter-spacing': 0.05,
+          'text-offset': [0, 1.5]
+      },
+      paint: {
+          'text-color': '#202',
+          'text-halo-color': '#fff',
+          'text-halo-width': 2
+      },
+      });
+
+      // this.map.addLayer({
+      //   id: 'bikes-layer',
+      //   source: 'plane',
+      //   type: 'symbol',
+      //   layout: {
+      //     'icon-image': L.divIcon({
+      //       // specify a class name that we can refer to in styles, as we
+      //       // do above.
+      //       className: 'fa-icon',
+      //       // html here defines what goes in the div created for each marker
+      //       html: '<i class="fa fa-camera-retro fa-3x"></i>',
+      //       // and the marker width and height
+      //       iconSize: [40, 40]
+      //   })
+      //   }
+      // });
 
       this.mapLayers.routes['office'] = {
         id: 'office' ,
