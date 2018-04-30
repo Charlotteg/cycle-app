@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers } from '@angular/http';
+import { environment } from '../../environments/environment';
 
 import 'rxjs/add/operator/map';
 
@@ -14,6 +15,13 @@ export class DataService {
   // private commuteJoy = 'assets/currentData.json';
 
   constructor(private http: Http) { }
+
+  createAuthorizationHeader(headers: Headers) {
+    const token = environment.commuteJoy.apiKey;
+    headers.append('Authorization', token);
+    headers.append('cache-control', 'no-cache');
+    headers.append('content-type', 'application/json');
+  }
 
   getOffices(): Observable<any> {
     return this.http
@@ -50,8 +58,10 @@ export class DataService {
 
 
   getCurrentData(): Observable<any> {
+    const headers = new Headers();
+    this.createAuthorizationHeader(headers,);
     return this.http
-                .get(this.commuteJoy)
+                .get(this.commuteJoy, {headers: headers})
                 .map ( res => {
                     console.log('routes', res.json());
                     return res.json();

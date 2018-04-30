@@ -98,14 +98,64 @@ export class MapComponent implements OnInit {
         source: 'plane',
         type: 'circle',
         paint: {
-          'circle-radius': 3,
-          'circle-color': '#fcb400',
-          'circle-opacity': 0.6,
+          'circle-radius': 6,
+          'circle-opacity': 1,
           'circle-stroke-width': 0.2,
           'circle-stroke-color': '#fcb400',
-          'circle-stroke-opacity': 0.6
+          'circle-stroke-opacity': 1,
+          'circle-color': [
+            'match',
+            ['get', 'team'],
+            'Arup NYC', '#28AF73',
+            'Arup Chicago', '#28AAE1',
+            'Arup DC', '#696EB4',
+            'Arup Seattle', '#D22D7D',
+            'Arup LA', '#FA9B1E',
+            'Arup Toronto', '#FF79EC',
+            'Arup Bristol', '#FFFF00',
+            'Arup Leeds', '#FF0000',
+            'Arup Sheffield', '#FF0000',
+            'Arup Montreal', '#FF0000',
+            /* other */ '#ccc'
+        ]
         }
       });
+
+      this.map.addLayer({
+        id: 'bikes-label-layer',
+        source: 'plane',
+        type: 'symbol',
+        layout: {
+          'text-field': '{team}',
+          'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
+          'text-size': 11,
+          'text-transform': 'uppercase',
+          'text-letter-spacing': 0.05,
+          'text-offset': [0, 1.5]
+      },
+      paint: {
+          'text-color': '#202',
+          'text-halo-color': '#fff',
+          'text-halo-width': 2
+      },
+      });
+
+      // this.map.addLayer({
+      //   id: 'bikes-layer',
+      //   source: 'plane',
+      //   type: 'symbol',
+      //   layout: {
+      //     'icon-image': L.divIcon({
+      //       // specify a class name that we can refer to in styles, as we
+      //       // do above.
+      //       className: 'fa-icon',
+      //       // html here defines what goes in the div created for each marker
+      //       html: '<i class="fa fa-camera-retro fa-3x"></i>',
+      //       // and the marker width and height
+      //       iconSize: [40, 40]
+      //   })
+      //   }
+      // });
 
       this.mapLayers.routes['office'] = {
         id: 'office' ,
@@ -149,40 +199,24 @@ export class MapComponent implements OnInit {
     console.log(this.routeData, this.currentData);
 
 
-    this.routeData.features = this.routeData.features.map((d) => {
-      d.properties.lineDistance = turf.lineDistance(d, { units : 'miles'});
+    // this.routeData.features = this.routeData.features.map((d) => {
+    //   d.properties.lineDistance = turf.lineDistance(d, { units : 'miles'});
 
-      const arc = [];
+    //   const arc = [];
 
-      const steps = 100;
+    //   const steps = 100;
 
-      for (let i = 0; i < d.properties.lineDistance; i += d.properties.lineDistance / steps) {
-        const segment = turf.along(d, i, {units: 'miles'});
-        arc.push(segment.geometry.coordinates);
-      }
-
-      d.geometry.coordinates = arc;
-
-      return d;
-    });
-
-
-
-    // Calculate the distance in kilometers between route start/end point.
-    // this.lineDistance = turf.lineDistance(this.routeData.features[0], { units : 'kilometers'});
-
-    // const arc = [];
-
-    // Draw an arc between the `origin` & `destination` of the two points
-    // for (let i = 0; i < this.lineDistance; i++) {
-    //     const segment = turf.along(this.routeData.features[0], i / 1000 * this.lineDistance, {units: 'kilometers'});
+    //   for (let i = 0; i < d.properties.lineDistance; i += d.properties.lineDistance / steps) {
+    //     const segment = turf.along(d, i, {units: 'miles'});
     //     arc.push(segment.geometry.coordinates);
-    // }
+    //   }
 
-    // Update the route with calculated arc coordinates
-    // this.routeData.features[0].geometry.coordinates = arc;
-    console.log('protein bar', this.routeData);
-    this.mapLayers.routes['route']['source'].setData(this.routeData);
+    //   d.geometry.coordinates = arc;
+
+    //   return d;
+    // });
+
+    // this.mapLayers.routes['route']['source'].setData(this.routeData);
 
       // Used to increment the value of the point measurement against the route.
     const counter = 2000;
@@ -229,14 +263,38 @@ export class MapComponent implements OnInit {
       if (this.currentData && this.teamData && this.routeData) {
         this.milequistData = this.dataService.calcMilequists(this.currentData, this.teamData, this.routeData);
 
+
+        // make routes nice and curved
+        this.routeData.features = this.routeData.features.map((k) => {
+          k.properties.lineDistance = turf.lineDistance(k, { units : 'miles'});
+
+          const arc = [];
+
+          const steps = 100;
+
+          for (let i = 0; i < k.properties.lineDistance; i += k.properties.lineDistance / steps) {
+            const segment = turf.along(k, i, {units: 'miles'});
+            arc.push(segment.geometry.coordinates);
+          }
+
+          k.geometry.coordinates = arc;
+
+          return k;
+        });
+        this.mapLayers.routes['route']['source'].setData(this.routeData);
+
+
+
+
+
         console.log(this.milequistData);
 
         this.bikes = {type: 'geojson', data: {type: 'FeatureCollection', features: []} };
 
         this.milequistData.map((d) => {
-            console.log(this.routeData);
-            if (d.routes) {
 
+            // make routes nice and curved
+            if (d.routes) {           //
             const currentRoute = d.routes.filter((j) => {
               return j.current && !j.complete;
             });
@@ -269,7 +327,7 @@ export class MapComponent implements OnInit {
         console.log('bikes', this.bikes);
 
         if (this.mapLayers.routes['plane']) {
-          this.mapLayers.routes['plane']['source'].setData(this.bikes);
+          this.mapLayers.routes['plane']['source'].setData(this.bikes.data);
         }
 
 
